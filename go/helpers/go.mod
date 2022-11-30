@@ -1,3 +1,3 @@
-module github.com/fbegyn/aoc2020/go/helpers
+module github.com/fbegyn/aoc2022/go/helpers
 
-go 1.16
+go 1.19
