@@ -8,7 +8,14 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"golang.org/x/exp/constraints"
 )
+
+// Type constraint for general numbers
+type Number interface {
+	constraints.Float | constraints.Integer
+}
 
 // OpenFile well, it opens a file based on a path :p
 func OpenFile(f string) (file *os.File) {
@@ -67,6 +74,13 @@ func StreamRunes(file string, output chan<- rune) {
 		output <- []rune(scanner.Text())[0]
 	}
 	close(output)
+}
+
+func Sum[T Number](slice []T) (sum T) {
+	for _, e := range slice {
+		sum += e
+	}
+	return
 }
 
 // SumOfFloat64Array sums all float64 in the array
