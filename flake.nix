@@ -20,17 +20,45 @@
       in
       {
         devShells = rec {
-          default = aoc;
-          aoc = pkgs.devshell.mkShell {
-            name = "AOC";
+          default = go;
+          go = pkgs.devshell.mkShell {
+            name = "AOC-go";
             packages = [
               pkgs.nixpkgs-fmt
               pkgs.inotify-tools
               pkgs.go_1_19
-              pkgs.gotools
               pkgs.go-tools
+              pkgs.gotools
+            ];
+            env = [];
+            commands = [];
+          };
+          elixir = pkgs.devshell.mkShell {
+            name = "AOC-elixir";
+            packages = [
+              pkgs.nixpkgs-fmt
+              pkgs.inotify-tools
               pkgs.erlang
               pkgs.elixir
+            ];
+            env = [];
+            commands = [];
+          };
+          ruby = pkgs.devshell.mkShell {
+            name = "AOC-ruby";
+            packages = [
+              pkgs.nixpkgs-fmt
+              pkgs.inotify-tools
+              pkgs.ruby
+            ];
+            env = [];
+            commands = [];
+          };
+          rust = pkgs.devshell.mkShell {
+            name = "AOC-rust";
+            packages = [
+              pkgs.nixpkgs-fmt
+              pkgs.inotify-tools
               pkgs.rustup
             ];
             env = [];
