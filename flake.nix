@@ -50,6 +50,7 @@
               pkgs.nixpkgs-fmt
               pkgs.inotify-tools
               pkgs.ruby
+              pkgs.bundix
             ];
             env = [];
             commands = [];
