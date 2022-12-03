@@ -14,12 +14,13 @@ func main() {
 	input := helpers.InputToLines(file)
 
 	totalPrio, groupPrio := 0, 0
-	var group [3]string
 	counter := 0
+	var group [3]string
+	var overlap rune
+	var middle, priority int
 	for _, l := range input {
-		middle := len(l) / 2
+		middle = len(l) / 2
 		comp1, comp2 := l[:middle], l[middle:]
-		var overlap rune
 		for _, r := range comp1 {
 			if strings.ContainsRune(comp2, r) {
 				overlap = r
@@ -27,7 +28,6 @@ func main() {
 			}
 		}
 
-		var priority int
 		if unicode.IsUpper(overlap) {
 			priority = int(overlap - 38)
 		} else {
