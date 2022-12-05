@@ -34,7 +34,10 @@ func main() {
 	}
 
 	// create a duplicate for part 2
-	copy(stacks2, stacks)
+	for i:=0;i<len(stacks2);i++ {
+		stacks2[i] = make([]byte, len(stacks[i]))
+		copy(stacks2[i], stacks[i])
+	}
 
 	// solve part1
 	for _, l := range input[stackLines+2:] {
@@ -54,15 +57,11 @@ func main() {
 
 	// solve part2
 	for _, l := range input[stackLines+2:] {
-		fmt.Println(l)
-		fmt.Println(stacks2)
 		sections := strings.Split(l, " ")
 		move, from, to := helpers.Atoi(sections[1]), helpers.Atoi(sections[3])-1, helpers.Atoi(sections[5])-1
 		x, a := stacks2[from][len(stacks2[from])-move:], stacks2[from][:len(stacks2[from])-move]
 		stacks2[from] = a
 		stacks2[to] = append(stacks2[to], x...)
-		fmt.Println(stacks2)
-		fmt.Println()
 	}
 	fmt.Printf("The first creates for part 2 are: ")
 	for _, s := range stacks2 {
