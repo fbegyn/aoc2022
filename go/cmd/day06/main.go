@@ -32,8 +32,5 @@ func checkMarker(inp string, size int) int {
 			}
 		}
 	}
-	if searching {
-		return 0
-	}
 	return i + size - 1
 }
