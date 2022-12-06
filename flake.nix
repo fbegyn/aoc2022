@@ -40,6 +40,7 @@
               pkgs.inotify-tools
               pkgs.erlang
               pkgs.elixir
+              pkgs.elixir_ls
             ];
             env = [];
             commands = [];
@@ -51,6 +52,7 @@
               pkgs.inotify-tools
               pkgs.ruby
               pkgs.bundix
+              pkgs.solargraph
             ];
             env = [];
             commands = [];
@@ -61,6 +63,7 @@
               pkgs.nixpkgs-fmt
               pkgs.inotify-tools
               pkgs.rustup
+              pkgs.rust-analyzer
             ];
             env = [];
             commands = [];
