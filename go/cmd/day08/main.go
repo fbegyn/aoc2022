@@ -85,7 +85,7 @@ func checkView(v int, slice []int, reverse bool) (view int) {
 	c := make([]int, len(slice))
 	copy(c, slice)
 	if reverse {
-		helpers.Reverse(c)
+		helpers.ReverseSlice(c)
 	}
 	for i, t := range c {
 		view = i + 1
