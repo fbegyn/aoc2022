@@ -1,7 +1,6 @@
 #! /usr/bin/env sh
 
-DAY=$1
-DIR=day$(printf "%02d" ${DAY})
+DIR=day$1
 
 mkdir -p ./bin
 go build -o ./bin/${DIR} -ldflags "-w -s" ./cmd/${DIR}
