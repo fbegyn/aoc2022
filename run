@@ -1,6 +1,6 @@
 #! /usr/bin/env sh
 
-day="$(printf '%02d' "$1")"
+day="$1"
 part="$2"
 inputfile="$3"
 
