@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -76,10 +77,16 @@ func StreamRunes(file string, output chan<- rune) {
 	close(output)
 }
 
-func Reverse[S ~[]E, E any](s S) {
+func ReverseSlice[S ~[]E, E any](s S) {
 	for i, j := 0, len(s)-1; i < j; i, j = i+1, j-1 {
 		s[i], s[j] = s[j], s[i]
 	}
+}
+
+func SortSlice[T constraints.Ordered](s []T) {
+	sort.Slice(s, func(i, j int) bool {
+		return s[i] < s[j]
+	})
 }
 
 func Sum[T Number](slice []T) (sum T) {
